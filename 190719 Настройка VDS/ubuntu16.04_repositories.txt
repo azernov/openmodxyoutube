@@ -1,0 +1,11 @@
+#nginx
+deb http://nginx.org/packages/ubuntu/ xenial nginx
+deb-src http://nginx.org/packages/ubuntu/ xenial nginx
+
+#php
+deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main
+deb-src http://ppa.launchpad.net/ondrej/php/ubuntu xenial main
+
+#mysql-5.7
+deb http://ppa.launchpad.net/ondrej/mysql-5.7/ubuntu xenial main
+deb-src http://ppa.launchpad.net/ondrej/mysql-5.7/ubuntu xenial
