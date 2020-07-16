@@ -1,0 +1,13 @@
+#Открываем файл /etc/mysql/my.cnf и в секции [mysqld] в конце дописываем:
+
+[mysqld]
+sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
+# не забываем про root пользователя
+
+# Чтобы создать пользователя и БД: Выполнить под root-пользователем mysql, предварительно заменив все переменные (c $ спереди)
+CREATE DATABASE IF NOT EXISTS $DBNAME;
+CREATE USER '$DBUSER'@'localhost' IDENTIFIED BY '$DBUSERPASSWORD';
+GRANT USAGE ON *.* TO '$DBUSER'@'localhost' IDENTIFIED BY '$DBUSERPASSWORD' REQUIRE NONE WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+GRANT ALL PRIVILEGES ON `$DBNAME`.* TO '$DBUSER'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
