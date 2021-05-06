@@ -12,14 +12,14 @@
 ```
 server {
     listen               80;
-    server_name             yourdomain.com;
+    server_name          yourdomain.com;
 
     root                 "/your/path/to/www/dir";
 
     access_log           /your/path/to/nginx_access.log;
     error_log            /your/path/to/nginx_error.log;
     
-    index                 index.php;
+    index                index.php;
     
     location /core/ {                                                                                                                                                                                                                               
         deny all;                                                                                                                                                                                                                                                    
@@ -45,7 +45,7 @@ server {
     }
 
     location ~ \.php$ {
-        fastcgi_pass     unix:/Users/artprog/php-fpm.sock;
+        fastcgi_pass     unix:/your/path/to/php-fpm.sock;
         fastcgi_param    SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include          fastcgi_params;
     }
